@@ -9,6 +9,14 @@ group = 'it.highersoft'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '15'
 
+jar {
+    manifest {
+            attributes(
+                    'Main-Class': 'it.highersoft.roomoccupancymanager.RoomOccupancyManagerApp'
+            )
+        }
+}
+
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
