@@ -16,5 +16,10 @@
   
 ### run application from CLI: 
   ``` ./gradlew bootRun ``` 
+  
 and then use `curl` to test a REST API:
+
 ``` curl -XPOST http://localhost:8080/occupancy -d'{"freeEconomyRooms":3, "freePremiumRooms":3, "priceOffers":[23, 45, 155, 374, 22, 99.99, 100, 101, 115, 209]}' -H "Content-Type: application/json"```
+
+### Docker:
+
