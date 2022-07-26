@@ -34,6 +34,7 @@ sleep 1
 printf "\n"
 curl -XPOST http://localhost:8080/occupancy -d'{"freeEconomyRooms":0, "freePremiumRooms":0, "priceOffers":[1, 2, 3, 4, 101, 102]}' -H "Content-Type: application/json"
 
+printf "\n"
 printf "\nkilling docker containers...\n"
 docker kill $(docker ps -q)
 
