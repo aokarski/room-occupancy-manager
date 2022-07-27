@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2022 SmartRecruiters Inc. All Rights Reserved.
- */
-
 package it.highersoft.roomoccupancymanager.config;
 
 import java.math.BigDecimal;
