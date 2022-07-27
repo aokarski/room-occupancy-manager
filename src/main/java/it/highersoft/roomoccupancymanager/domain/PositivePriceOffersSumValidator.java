@@ -3,7 +3,7 @@ package it.highersoft.roomoccupancymanager.domain;
 import java.math.BigDecimal;
 import java.util.function.Predicate;
 
-public class PositiveAmountValidator implements BusinessValidator {
+public class PositivePriceOffersSumValidator implements BusinessValidator {
     private static final Predicate<BigDecimal> POSITIVE_NUM = num -> num.compareTo(BigDecimal.ZERO) > 0;
 
     @Override

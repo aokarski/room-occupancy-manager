@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static it.highersoft.roomoccupancymanager.domain.RoomType.ECONOMY;
@@ -110,5 +109,26 @@ class EconomyPremiumThresholdCalculatorTest {
 
         assertEquals(1, result.count(ECONOMY));
         assertEquals(new BigDecimal("45.0"), result.sum(ECONOMY));
+    }
+
+    @Test
+    void whenNoVacancyForSomeRoomsTheCalculationStillPossible() {
+        // given:
+        var premiumVacancy = Vacancy.of(PREMIUM, 0);
+        var economyVacancy = Vacancy.of(ECONOMY, 1);
+
+        // when:
+        var result = underTest.calculate(new OccupancyRequest(List.of(premiumVacancy, economyVacancy), GUEST_OFFERS));
+
+        // then:
+        assertNotNull(result);
+        assertNotNull(result.getOccupancies());
+        assertFalse(result.getOccupancies().isEmpty());
+
+        assertEquals(0, result.count(PREMIUM));
+        assertEquals(BigDecimal.ZERO, result.sum(PREMIUM));
+
+        assertEquals(1, result.count(ECONOMY));
+        assertEquals(new BigDecimal("99.99"), result.sum(ECONOMY));
     }
 }

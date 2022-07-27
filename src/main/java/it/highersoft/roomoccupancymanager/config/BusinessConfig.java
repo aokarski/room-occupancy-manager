@@ -11,7 +11,7 @@ import it.highersoft.roomoccupancymanager.domain.BusinessValidator;
 import it.highersoft.roomoccupancymanager.domain.Currency;
 import it.highersoft.roomoccupancymanager.domain.EconomyPremiumThresholdCalculator;
 import it.highersoft.roomoccupancymanager.domain.OccupancyCalculator;
-import it.highersoft.roomoccupancymanager.domain.PositiveAmountValidator;
+import it.highersoft.roomoccupancymanager.domain.PositivePriceOffersSumValidator;
 import it.highersoft.roomoccupancymanager.domain.ValidRequestValidator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -39,6 +39,6 @@ public class BusinessConfig {
     @Bean
     public List<BusinessValidator> validators() {
         return List.of(new ValidRequestValidator(),
-                new PositiveAmountValidator());
+                new PositivePriceOffersSumValidator());
     }
 }

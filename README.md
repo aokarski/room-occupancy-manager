@@ -7,7 +7,11 @@
 - 2 layers separated on a package level:
   - domain with the business logic
   - rest for the REST API support
-- Domain layer implementation design favours easy extensibility (more than 2 type of room type or different occupation calculation algorithm) 
+- Domain layer implementation design favours easy extensibility:
+  - more than 2 type of room in the future
+  - different occupation calculation algorithm
+  - flexible validators
+  - no hardcoded room types in domain data structures (collections preferred)
 - REST layer is rather written for the specific case (only premium economy) then favours faster development and simplicty 
 
 # Running & testing:
